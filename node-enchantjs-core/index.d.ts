@@ -1590,7 +1590,3 @@ declare namespace Rf.ETS.FrameWork {
         Run(): boolean;
     }
 }
-
-declare module "enchantjs" {
-	export = enchant;
-}

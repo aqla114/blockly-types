@@ -5,6 +5,8 @@
 
 declare module Blockly {
 
+    function setLocale(lan: any): void;
+
     class Block extends Block__Class { }
     /** Fake class which should be extended to avoid inheriting static properties */
     class Block__Class  { 
@@ -11857,8 +11859,4 @@ declare module Blockly {
             position(): void;
     } 
     
-}
-
-declare module "blockly" {
-	export = Blockly;
 }
