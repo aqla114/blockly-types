@@ -7,6 +7,8 @@ declare module Blockly {
 
     function setLocale(lan: any): void;
 
+    var Blocks: Block[];
+
     class Block extends Block__Class { }
     /** Fake class which should be extended to avoid inheriting static properties */
     class Block__Class  { 
