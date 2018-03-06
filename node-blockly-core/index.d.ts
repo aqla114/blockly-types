@@ -6303,6 +6303,8 @@ declare module Blockly {
 
 declare module Blockly {
 
+    var JavaScript: Generator; 
+
     class Generator extends Generator__Class { }
     /** Fake class which should be extended to avoid inheriting static properties */
     class Generator__Class  { 
