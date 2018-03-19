@@ -404,9 +404,11 @@ declare module enchant {
 
       onload:(e)=>void;
       currentScene:Scene;
+      ready: boolean;
       rootScene:Scene;
+      running: boolean;
       fps:number;
-      input: any;
+      input: Object;
 
       /**
        * The width of the core screen.
@@ -564,6 +566,8 @@ declare module enchant {
          * キーバインドを削除する。
          */
         keyunbind(): this;
+
+        
     }
 
     /**
