@@ -406,6 +406,7 @@ declare module enchant {
       currentScene:Scene;
       rootScene:Scene;
       fps:number;
+      input: any;
 
       /**
        * The width of the core screen.
@@ -551,6 +552,18 @@ declare module enchant {
        * @return {Number} Time elapsed (in seconds).
        */
       getElapsedTime():number;
+
+      /**
+       * キーバインドを設定する。
+       * @param {Number} key
+       * @param {string} button
+       */
+       keybind(): this;
+
+        /**
+         * キーバインドを削除する。
+         */
+        keyunbind(): this;
     }
 
     /**
@@ -754,6 +767,11 @@ declare module enchant {
          * @type Number|Array
          */
         frame:number;
+
+        /**
+         * Sprite timelien
+         */
+        tl:Timeline;
     }
 
     /**
@@ -961,6 +979,56 @@ declare module enchant {
      */
     class CanvasScene extends Scene
     {
+    }
+
+    /**
+     * Action
+     */
+    class Action extends EventTarget {
+        param: {
+            time: number;
+            onactionstart: Function;
+            onactiontick: Function;
+            onactionend: Function;
+        };
+        constructor(param);
+    }
+
+    class Timeline extends EventTarget {
+        action(params);
+        add();
+        and();
+        clear();
+        cue(cue: any);
+        delay(time: number);
+        exec(func: Function);
+        fadeIn(time: number, easing?: Function);
+        fadeOut(time, easing?: Function);
+        fadeTo(opacity: number, time: number, easing?: Function);
+        hide();
+        loop();
+        moveBy(x: number, y: number, time: number, easing?: Function);
+        moveTo(x: number, y: number, time: number, easing?: Function);
+        moveX(x: number, time: number, easing?: Function);
+        moveY(y: number, time: number, easing?: Function);
+        next(remainingTime: number);
+        pause();
+        removeFromScene();
+        repeat(func: Function, time: number);
+        resume();
+        rotateBy(deg: number, time: number, easing: Function);
+        rotateTo(deg: number, time: number, easing: Function);
+        scaleBy(scaleX: number, scaleY: number, time: number, easing: Function);
+        scaleTo(scaleX: number, scaleY: number, time: number, easing: Function);
+        setFrameBased();
+        setTimeBased();
+        show();
+        skip(frames: number);
+        then(func: Function);
+        tick(elapsed: number);
+        tween(params);
+        unloop();
+        waitUntil(func: Function);
     }
 
     /**
